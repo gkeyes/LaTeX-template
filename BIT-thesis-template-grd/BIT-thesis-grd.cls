@@ -225,7 +225,8 @@ footskip=0.7cm% 页脚 1.8cm %
 
 \RequirePackage{titletoc}
 \titlecontents{chapter}[0pt]{\songti \zihao{4}}
-    {\bf\thecontentslabel\hspace{\ccwd}}{\bf}
+%   {\bf\thecontentslabel\hspace{\ccwd}}{\bf}
+    {\thecontentslabel\hspace{\ccwd}}{}
     {\hspace{.5em}\titlerule*{.}\contentspage}
 \titlecontents{section}[2\ccwd]{\songti \zihao{-4}}
     {\thecontentslabel\hspace{\ccwd}}{}
@@ -357,7 +358,8 @@ footskip=0.7cm% 页脚 1.8cm %
 
 
 %% sort and compress citations
-\RequirePackage[numbers,square,comma,super,sort&compress]{natbib}
+%\RequirePackage[numbers,square,comma,super,sort&compress]{natbib}
+\RequirePackage[numbers,square,comma,sort&compress]{natbib}
 % 上标引用
 \newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
 
@@ -734,7 +736,8 @@ footskip=0.7cm% 页脚 1.8cm %
       \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
       \addcontentsline{toc}{chapter}{参考文献}
       \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
+%          {\settowidth\labelwidth{\@biblabel{#1}}%
+           {\renewcommand{\makelabel}[1]{##1\hfill}\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
             \advance\leftmargin\labelsep
             \setlength{\parsep}{1mm}
